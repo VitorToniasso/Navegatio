@@ -2,6 +2,13 @@
   "expo": {
     "name": "navega",
     "slug": "navega",
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "android": {
+      "package": "com.anonymous.navega"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-status-bar"
+    ]
   }
 }
