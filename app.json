@@ -2,9 +2,19 @@
   "expo": {
     "name": "navega",
     "slug": "navega",
+    "scheme": "navega",
     "version": "1.0.0",
     "android": {
-      "package": "com.anonymous.navega"
-    }
+      "package": "com.vitortoniasso.navega",
+      "adaptiveIcon": {
+        "foregroundImage": "./src/assets/adaptive-icon.png",
+        "backgroundColor": "#3D44CD"
+      }
+    },
+    "ios": {
+      "bundleIdentifier": "com.vitortoniasso.navega",
+      "icon": "./src/assets/ios-icon.png"
+    },
+    "plugins": ["expo-router"]
   }
 }

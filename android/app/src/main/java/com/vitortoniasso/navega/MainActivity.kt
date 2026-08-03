@@ -1,4 +1,4 @@
-package com.anonymous.navega
+package com.vitortoniasso.navega
 
 import android.os.Build
 import android.os.Bundle

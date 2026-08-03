@@ -1,4 +1,4 @@
-package com.anonymous.navega
+package com.vitortoniasso.navega
 
 import android.app.Application
 import android.content.res.Configuration
