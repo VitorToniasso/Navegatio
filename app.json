@@ -15,6 +15,9 @@
       "bundleIdentifier": "com.vitortoniasso.navega",
       "icon": "./src/assets/ios-icon.png"
     },
-    "plugins": ["expo-router"]
+    "plugins": [
+      "expo-router",
+      "expo-splash-screen"
+    ]
   }
 }
