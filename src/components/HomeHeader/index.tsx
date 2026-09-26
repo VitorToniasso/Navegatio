@@ -3,10 +3,12 @@ import { LinearGradient } from "expo-linear-gradient";
 import { styles } from "./style";
 import { Text, View } from "react-native";
 import { Separador } from "../Separador";
-import { Summary } from "../Summary";
+import { Summary, SummaryProps } from "../Summary";
 
 export type HomeHeaderProps = {
   total: string;
+  input: SummaryProps;
+  output: SummaryProps;
 };
 type Props = {
   data: HomeHeaderProps;
@@ -25,12 +27,12 @@ export function HomeHeader({ data }: Props) {
       <View style={styles.Summary}>
         <Summary
           isLeft
-          data={{ label: "Entradas", value: "R$6.184,90" }}
+          data={data.input}
           icon={{ name: "arrow-upward", color: colors.green[500] }}
         />
         <Summary
           isLeft
-          data={{ label: "Saídas", value: "-R$883,65" }}
+          data={data.output}
           icon={{ name: "arrow-downward", color: colors.red[400] }}
         />
       </View>
