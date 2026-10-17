@@ -1,29 +1,41 @@
-import { router, useLocalSearchParams } from 'expo-router'
-import { Button, StyleSheet, Text, View } from 'react-native'
+import { useLocalSearchParams } from "expo-router";
+import { useState } from "react";
+import { View } from "react-native";
 
-import { colors } from '@/theme/colors'
+import { Button } from "@/components/Button";
+import { CurrencyInput } from "@/components/CurrencyInput";
+import { Input } from "@/components/Input";
+import { PageHeader } from "@/components/PageHeader";
 
 export default function Transaction() {
-  const params = useLocalSearchParams<{ id: string }>()
+  // id da meta — será usado para vincular a transação ao salvar no banco
+  const params = useLocalSearchParams<{ id: string }>();
+  const [amount, setAmount] = useState<number | null>(null);
+  const [reason, setReason] = useState("");
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>ID: {params.id}</Text>
-      <Button title="Voltar" onPress={() => router.back()} />
-    </View>
-  )
-}
+    <View style={{ flex: 1, padding: 24 }}>
+      <PageHeader
+        title="Nova transação"
+        subtitle="A cada valor guardado você fica mais próximo da sua meta. Se esforce para guardar e evitar retirar."
+      />
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.white,
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 12,
-  },
-  title: {
-    fontSize: 20,
-    color: colors.blue[500],
-  },
-})
+      <View style={{ marginTop: 32, gap: 24 }}>
+        <CurrencyInput
+          label="Valor (R$)"
+          value={amount}
+          onChangeValue={setAmount}
+        />
+
+        <Input
+          label="Motivo"
+          placeholder="Ex: Investir em CDB de 110% no banco XPTO"
+          value={reason}
+          onChangeText={setReason}
+        />
+
+        <Button title="Salvar" />
+      </View>
+    </View>
+  );
+}
